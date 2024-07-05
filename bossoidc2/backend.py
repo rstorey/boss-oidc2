@@ -20,7 +20,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.settings import import_from_string
 from rest_framework.authentication import get_authorization_header
 
-from django.utils.encoding import force_bytes, smart_text, smart_bytes
+from django.utils import encoding
 from django.utils.translation import ugettext as _
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 
@@ -31,6 +31,10 @@ from josepy.jws import JWS, Header
 import requests
 import json
 import logging
+
+
+def smart_text(in_string):
+    return encoding.smart_str(in_string)
 
 def _log(child):
     return logging.getLogger(__name__).getChild(child)

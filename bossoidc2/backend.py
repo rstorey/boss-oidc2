@@ -21,7 +21,7 @@ from rest_framework.settings import import_from_string
 from rest_framework.authentication import get_authorization_header
 
 from django.utils import encoding
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 
 from bossoidc2.models import Keycloak as KeycloakModel

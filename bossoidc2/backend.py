@@ -331,7 +331,7 @@ class OpenIdConnectBackend(OIDCAuthenticationBackend): # pragma: no cover
             if jwk['kid'] != smart_text(header.kid) and num_keys > 1:
                 continue
             if 'alg' in jwk and jwk['alg'] != smart_text(header.alg):
-                raise SuspiciousOperation('alg values do not match.')
+                raise SuspiciousOperation('alg values {} and {} do not match.'.format(jwk['alg'], smart_text(header.alg)))
             key = jwk
         if key is None:
             raise SuspiciousOperation('Could not find a valid JWKS.')
